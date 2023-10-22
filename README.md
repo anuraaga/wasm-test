@@ -18,4 +18,4 @@ $ kubectl apply -f k8s_deploy.yml
 ```
 
 Wasm binary
-`tinygo build -o main.wasm -gc=custom -tags=custommalloc -scheduler=none -target=wasi main.go`
+`tinygo build -o main.wasm -scheduler=none -target=wasi main.go`

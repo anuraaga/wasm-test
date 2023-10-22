@@ -5,7 +5,6 @@ import (
 
 	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
 	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
-	_ "github.com/wasilibs/nottinygc"
 )
 
 func main() {
@@ -45,8 +44,4 @@ func (h *filterContext) OnPluginStart(_ int) types.OnPluginStartStatus {
 // intercepted request the Envoy Sidecar sends us
 func (h *filterContext) NewHttpContext(_ uint32) types.HttpContext {
 	return &internal.RequestHandler{Conf: h.conf, Metrics: h.metrics}
-}
-
-func sched_yield() int32 {
-	return 0
 }
