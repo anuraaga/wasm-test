@@ -75,9 +75,8 @@ func (d *AuthClient) authCallback(_, _, _ int) {
 
 		h := "x-test"
 
-		result := authResponseHeaders[h]
-		proxywasm.LogWarnf("%s: adding new header val %s to original request: %s", d.XRequestID, result, authResponseHeaders)
-		if err := proxywasm.AddHttpRequestHeader(h, result); err != nil {
+		proxywasm.LogWarnf("%s: adding new header val %s to original request: %s", d.XRequestID, "foo", authResponseHeaders)
+		if err := proxywasm.AddHttpRequestHeader(h, "foo"); err != nil {
 			// proxywasm.LogCriticalf("%s: failed to add header '%v' to request: %v", fc.XRequestID, h, err)
 			d.Metrics.Increment("error_count", nil)
 			return
